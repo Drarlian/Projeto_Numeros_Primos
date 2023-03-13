@@ -6,16 +6,16 @@ Tempo de execução com o parâmetro: +/- 00:56:447  # -> 56 Minutos
 from multiprocessing import Pool
 from time import time
 
-def descobre_primo(numero_inicio, numero_final):
+def descobre_primo(numero_inicio: int, numero_final: int) -> list:
     if numero_final % 2 == 0 and numero_final != 2:
         numero_final -= 1
-        mudou = True
+        mudou: bool = True
     else:
-        mudou = False
+        mudou: bool = False
 
-    lista_primos = []
-    comeco = numero_inicio
-    cont = 2
+    lista_primos: list = []
+    comeco: int = numero_inicio
+    cont: int = 2
 
     while True:
         for c in range(2, numero_inicio):
@@ -53,10 +53,10 @@ if __name__ == '__main__':
 
     inicio = time()
 
-    c1 = 500_000
-    c2 = 1_000_000
-    c3 = 1_500_000
-    c4 = 2_000_000
+    c1: int = 500_000
+    c2: int = 1_000_000
+    c3: int = 1_500_000
+    c4: int = 2_000_000
 
     r1 = pool.apply_async(descobre_primo, [2, c1])
     r2 = pool.apply_async(descobre_primo, [c1+1, c2])
